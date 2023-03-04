@@ -8,6 +8,7 @@ import {
 import ErrorPage from "../error/ErrorPage";
 import Home from "../home/Home";
 import { ProtecedRouter } from "./ProtectedRouter";
+import { Resume } from "../resume/Resume";
 
 export default function Router(){
     return(
@@ -15,6 +16,7 @@ export default function Router(){
             <Routes>
                 <Route path="/auth" element={<Auth/>}/>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/cv/:name" element={<Resume/>}/>
                 <Route path="/*" element={<ErrorPage/>}/>
             </Routes>
         </BrowserRouter>
