@@ -13,6 +13,7 @@ export const ProtecedRouter = ({Element,Instead}) =>{
             try{
             const response = await (await fetch(ENDPOINTS.isAuthorized,{
                                         method:"POST",
+                                        mode: "cors",
                                         headers:{"Content-Type":"application/json"},
                                         body:JSON.stringify({token})})).json()
                                         setAuthorized(response.succes);

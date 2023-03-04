@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import Navbar from "../uikit/Navbar";
 import { SideBar } from "../uikit/SideBar";
+import { Cv } from "./Cv";
 
 export const Resume = () => {
     
@@ -11,6 +12,7 @@ export const Resume = () => {
         <div className="resume__separator"/>
         <div className="resume__container">
         <SideBar/>
+        <Cv/>
         </div>
     </>)    
 }

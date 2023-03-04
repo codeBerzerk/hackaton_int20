@@ -12,6 +12,7 @@ const submit = (event,data,isLogin,dispatch,update) =>{
     if(data?.password?.trim().length > 7 && data?.login?.trim().length > 3){
         fetch(ENDPOINTS[`${isLogin?"login":"reg"}`],{
             method:"POST",
+            mode: "cors",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(data),
         })
