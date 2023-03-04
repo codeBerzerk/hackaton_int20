@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import NotificationContainer from "./components/notification/NotificationContainer";
+import Container from "./components/Notification/Container";
 import { combineReducer } from "./components/reducers/combineReducer";
 import Router from "./components/router/Router";
 
@@ -10,7 +10,7 @@ function App() {
   return (<>
     <Provider store={store}>
       <Router />
-      <NotificationContainer/>
+      <Container/>
     </Provider>
   </>);
 }
