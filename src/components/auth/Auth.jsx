@@ -2,6 +2,7 @@ import { TextField, Typography,Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { onInputHandler, submit } from "./authHandlers";
+import '../../styles/_auth.scss';
 
 
 export default function Auth(){
@@ -11,34 +12,28 @@ export default function Auth(){
 
     return(
             <section className="auth">
-                <div className="auth__container">
-                    <div className="auth__wrapper">
-                        <h1 className="auth__title">Welcome!</h1>
-                        <h5 className="auth__subtitle">{authToggle?"registration":"login"}</h5>
-                        <form className="auth__from" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch)}}>
-                            <span>
-                                <Typography variant="h5">Username:</Typography>
-                                <TextField 
+                        <h5 className="auth__subtitle">{authToggle?"Реєстрація":"Логін"}</h5>
+                        <form className="auth__form-container" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch)}}>
+                                <TextField
+                                    className="auth__form"
                                     label="Login"
                                     name="login"
                                     value={inputController.login}
                                     onInput={(event)=>{onInputHandler(event,updateController)}}
-                                    variant="standard" />
-                                <Typography variant="h5">Password:</Typography>
-                                <TextField 
+                                    variant="outlined"/>
+                                <TextField
+                                    className="auth__form"
+                                    type="password"
                                     label="Password"
                                     name="password"
                                     value={inputController.password}
                                     onInput={(event)=>{onInputHandler(event,updateController)}}
-                                    variant="standard" />
-                            </span>
-                            <Button className="auth__submit" type="submit">Sign in</Button>
+                                    variant="outlined"/>
+                            <Button className="auth__submit" type="submit">{authToggle?"Створити акаунт":"Ввійти"}</Button>
                         </form>
                         <p className="auth__switch" onClick={()=>updateToggle(!authToggle)}>
                             {!authToggle?"Alredy have an account?":"Dont have any account?"}
                         </p>
-                    </div>
-                </div>
             </section>
         )
 }
