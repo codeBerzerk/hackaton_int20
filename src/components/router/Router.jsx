@@ -13,7 +13,7 @@ export default function Router(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/auth" element={<ProtecedRouter Element={Auth}/>}/>
+                <Route path="/auth" element={<Auth/>}/>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/*" element={<ErrorPage/>}/>
             </Routes>

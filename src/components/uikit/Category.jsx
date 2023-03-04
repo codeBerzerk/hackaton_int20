@@ -15,7 +15,7 @@ export const Category = () => {
         renderInput={(params) => <TextField {...params} label="Category" />}/>
         </div>
         {categoryList.map(category=>{
-            return <div className="category__item" onClick={(event)=>{
+            return <div key={category} className="category__item" onClick={(event)=>{
                 updateActive();
                 event.target.classList.add("active")
             }}>

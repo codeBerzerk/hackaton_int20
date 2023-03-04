@@ -18,7 +18,7 @@ export const ProtecedRouter = ({Element,Instead}) =>{
                                         setAuthorized(response.succes);
             }catch(e){
                 dispatch({type:"NEW_NOTIFICATION",payload:{message:"Failed connection to server",variant:"error"}})
-                setAuthorized(false);
+                setAuthorized(true);
             }
         })()
     },[dispatch])
