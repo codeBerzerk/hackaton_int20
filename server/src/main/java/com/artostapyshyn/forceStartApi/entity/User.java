@@ -1,22 +1,18 @@
 package com.artostapyshyn.forceStartApi.entity;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import org.hibernate.Hibernate;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.artostapyshyn.forceStartApi.enums.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -42,14 +38,14 @@ public class User {
 
 	@Column(name = "user_password", nullable = false)
 	private String password;
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "users_roles", joinColumns = {
-			@JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
-					@JoinColumn(name = "role_id", referencedColumnName = "id") })
-	@JsonIgnore
-	private List<Role> roles = new ArrayList<>();
-
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "role", nullable = false)
+	private Role role;
+	
+	@Column(name = "token")
+	private String token;
+	
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)

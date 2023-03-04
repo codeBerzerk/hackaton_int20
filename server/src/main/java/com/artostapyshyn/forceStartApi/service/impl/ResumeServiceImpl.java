@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.artostapyshyn.forceStartApi.entity.Resume;
 import com.artostapyshyn.forceStartApi.repository.ResumeRepository;
 import com.artostapyshyn.forceStartApi.service.ResumeService;
 
+@Service
 public class ResumeServiceImpl implements ResumeService {
 
 	@Autowired
