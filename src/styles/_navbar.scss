@@ -1,0 +1,13 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 20px auto;
+    &__group{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 600px;
+    }
+}

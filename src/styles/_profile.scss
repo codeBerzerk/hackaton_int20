@@ -1,0 +1,14 @@
+.profile{
+    &__menu{
+        width: 250px;
+    }
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &--name{
+            font-size: 18px !important;
+            margin-right:15px !important;
+        }
+    }
+}

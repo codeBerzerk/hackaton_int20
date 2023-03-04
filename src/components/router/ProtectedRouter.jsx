@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { ENDPOINTS } from "../../ENDPOINTS";
 
 
-export const ProtecedRouter = ({Element}) =>{
+export const ProtecedRouter = ({Element,Instead}) =>{
     const dispatch = useDispatch();
     const [isAuthorized,setAuthorized] = useState(null);
     const token = "";
@@ -18,7 +18,7 @@ export const ProtecedRouter = ({Element}) =>{
                                         setAuthorized(response.succes);
             }catch(e){
                 dispatch({type:"NEW_NOTIFICATION",payload:{message:"Failed connection to server",variant:"error"}})
-                setAuthorized(true);
+                setAuthorized(false);
             }
         })()
     },[dispatch])
@@ -30,5 +30,5 @@ export const ProtecedRouter = ({Element}) =>{
                 </Backdrop>
     }
 
-    return(<>{isAuthorized ? <Element/> :""}</>);
+    return(<>{isAuthorized ? <Element/> :<Instead/>}</>);
 }
