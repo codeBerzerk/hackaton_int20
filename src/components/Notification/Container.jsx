@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Notification from "./Notification";
 
-export default function NotificationContainer() {
+export default function Container() {
     const messages = useSelector(state=>state.notifications);
     return(
         <section className="notification-container">

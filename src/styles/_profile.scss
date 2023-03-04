@@ -1,0 +1,59 @@
+.profile{
+    &__menu{
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &--name{
+            font-family: 'K2D', sans-serif;
+            font-size: 30px;
+            margin-top: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px solid lightgray;
+            cursor: context-menu;
+            user-select: none;
+            text-transform: capitalize;
+        }
+        & a{
+            width: 100%;
+            transition: .3s ease;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: 0.20);
+            }
+        }
+        &--item{
+            font-family: 'K2D', sans-serif;
+            width: 80%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            & span{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+    }
+    &__icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & h4{
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+        &--avatar{
+            cursor: pointer;
+        }
+        &--name{
+            font-size: 18px !important;
+            margin-right:15px !important;
+        }
+    }
+}

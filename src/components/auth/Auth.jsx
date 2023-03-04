@@ -1,4 +1,4 @@
-import { TextField, Typography,Button } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { onInputHandler, submit } from "./authHandlers";
@@ -13,7 +13,7 @@ export default function Auth(){
     return(
             <section className="auth">
                         <h5 className="auth__subtitle">{authToggle?"Реєстрація":"Логін"}</h5>
-                        <form className="auth__form-container" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch)}}>
+                        <form className="auth__form-container" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch,updateController)}}>
                                 <TextField
                                     className="auth__form"
                                     label="Login"
@@ -29,7 +29,7 @@ export default function Auth(){
                                     value={inputController.password}
                                     onInput={(event)=>{onInputHandler(event,updateController)}}
                                     variant="outlined"/>
-                            <Button className="auth__submit" type="submit">{authToggle?"Створити акаунт":"Ввійти"}</Button>
+                            <Button className="auth__submit" type="submit">{authToggle?"Створити акаунт":"увійти"}</Button>
                         </form>
                         <p className="auth__switch" onClick={()=>updateToggle(!authToggle)}>
                             {!authToggle?"Alredy have an account?":"Dont have any account?"}

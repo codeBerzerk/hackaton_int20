@@ -9,12 +9,14 @@ const onInputHandler = (event,update) => {
 
 const submit = (event,data,isLogin,dispatch,update) =>{
     event.preventDefault();
-    if(data?.password?.trim().length > 8 && data?.login?.trim().length > 3){
+    if(data?.password?.trim().length > 7 && data?.login?.trim().length > 3){
         fetch(ENDPOINTS[`${isLogin?"login":"reg"}`],{
             method:"POST",
+            mode: "cors",
+            headers:{"Content-Type":"application/json"},
             body:JSON.stringify(data),
         })
-        update({});
+        update({login:"",password:""});
     }else{
         dispatch({type:"NEW_NOTIFICATION",payload:{message:"Wrong input data!",variant:"warning"}})
     }

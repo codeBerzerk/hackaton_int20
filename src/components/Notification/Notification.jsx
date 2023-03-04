@@ -8,7 +8,7 @@ export default function Notification({message,variant,id}) {
     dispatch({type:"THROW_NOTIFICATION",payload:id}); 
   }
   return(
-    <Snackbar open={true} autoHideDuration={6000} onClose={deleteNotification}>
+    <Snackbar anchorOrigin={{vertical:"top",horizontal:"center"}} open={true} autoHideDuration={6000} onClose={deleteNotification}>
     <Alert onClose={deleteNotification} severity={variant} sx={{ width: '100%' }}>
       {message}
     </Alert>
