@@ -3,17 +3,21 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { onInputHandler, submit } from "./authHandlers";
 import '../../styles/_auth.scss';
+import { Navigate } from "react-router-dom";
 
 
 export default function Auth(){
     const [authToggle,updateToggle] = useState(false);
+    const [isRedirected,toRedirect] = useState(false);
     const [inputController,updateController] = useState({});
     const dispatch = useDispatch();
-
+    if(isRedirected){
+        return <Navigate to="/" />;
+    }
     return(
             <section className="auth">
-                        <h5 className="auth__subtitle">{authToggle?"Реєстрація":"Логін"}</h5>
-                        <form className="auth__form-container" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch,updateController)}}>
+                        <h5 className="auth__subtitle">{!authToggle?"Реєстрація":"Логін"}</h5>
+                        <form className="auth__form-container" onSubmit={event=>{submit(event,inputController,authToggle?true:false,dispatch,updateController,toRedirect)}}>
                                 <TextField
                                     className="auth__form"
                                     label="Login"
@@ -29,7 +33,7 @@ export default function Auth(){
                                     value={inputController.password}
                                     onInput={(event)=>{onInputHandler(event,updateController)}}
                                     variant="outlined"/>
-                            <Button className="auth__submit" type="submit">{authToggle?"Створити акаунт":"увійти"}</Button>
+                            <Button className="auth__submit" type="submit">{!authToggle?"Створити акаунт":"увійти"}</Button>
                         </form>
                         <p className="auth__switch" onClick={()=>updateToggle(!authToggle)}>
                             {!authToggle?"Alredy have an account?":"Dont have any account?"}

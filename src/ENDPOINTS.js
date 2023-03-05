@@ -1,7 +1,8 @@
-const host = "https://force-start-rest-api.herokuapp.com";
-
+const host = "https://force-start-nest.herokuapp.com";
 export const ENDPOINTS = {
-    login:`${host}/login`,
-    reg:`${host}/register`,
-    isAuthorized:`${host}/authorized`,
+    login:`${host}/auth/login`,
+    reg:`${host}/auth/register`,
+    isAuthorized:`${host}/auth/authorized`,
+    addResume:`${host}/resume/addResume`,
+    getOne:`${host}/resume/getOne`,
 }

@@ -1,11 +1,14 @@
-import { Modal, TextareaAutosize } from "@mui/material"
+import { Modal } from "@mui/material"
 import { useState } from "react";
+import Cookies from "universal-cookie/cjs/Cookies";
+import { ENDPOINTS } from "../../ENDPOINTS";
 import { onInputHandler } from "../auth/authHandlers";
 import { ResumeDialog } from "./ResumeDialog";
 
 export default function ResumeModal ({open,close}){
     const [data,updateData] = useState({});
     const [openDialog,closeDialog] = useState(false);
+    const coockies = new Cookies();
 
     return(<>
         <ResumeDialog open={openDialog} close={closeDialog} data={data} updateData={updateData}/>
@@ -14,7 +17,15 @@ export default function ResumeModal ({open,close}){
         onClose={()=>close(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
-            <form className="model__container">
+            <form className="model__container" onSubmit={(event)=>{
+                event.preventDefault();
+                fetch(ENDPOINTS.addResume,{
+                    method:"POST",
+                    mode: "cors",
+                    headers:{"Content-Type":"application/json"},
+                    body:JSON.stringify({data,token:coockies.get("token")}),
+                })
+            }}>
                 <h1 className="model__header">Резюме</h1>
                 <div className="model__wrapper" style={{width:"40%"}}>
                         <div className="model__input--container">

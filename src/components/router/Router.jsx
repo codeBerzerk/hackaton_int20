@@ -7,7 +7,6 @@ import {
   } from "react-router-dom";
 import ErrorPage from "../error/ErrorPage";
 import Home from "../home/Home";
-import { ProtecedRouter } from "./ProtectedRouter";
 import { Resume } from "../resume/Resume";
 import Projects from "../../projects/Projects";
 import Requieres from "../requieres/Requieres";

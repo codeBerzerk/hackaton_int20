@@ -4,7 +4,9 @@ import ProfileIcon from "./ProfileIcon";
 import { Search } from "./Search";
 import UnsignedButtons from "./UnsignedButtons";
 
+
 export default function Navbar() {
+
     return(
         <nav className="navbar">  
             <Logo/>

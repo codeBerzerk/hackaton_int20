@@ -1,8 +1,15 @@
 import { Chip } from "@mui/material";
 import { useSelector } from "react-redux"
-
+import Cookies from "universal-cookie";
 export const Cv = () => {
     const resumes = useSelector(state=>state.resumes);
+
+
+    console.log(!resumes.current.name);
+    if(!resumes.current.name){
+        return <>У вас немає резюме.</>;
+    }
+
     return<section className="cv">
         <div className="cv__header">
             <div className="cv__avatar" style={{backgroundImage:`url(${resumes.current.img})`}}>
@@ -20,7 +27,7 @@ export const Cv = () => {
             </div>
             <div>
                 <h3>Навички</h3>
-                <p>{resumes.current.skills.map(e=>{
+                <p>{resumes.current.skills.split(",").map(e=>{
                     return <Chip style={{marginRight:"5px"}} label={e} key={e} />
                 })}</p>
             </div>

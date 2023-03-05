@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 export default function ProfileIcon(){
     const [isOpen,setOpen] = useState(false);
-    const user = useSelector(state=>state.user)
+    const user = useSelector(state=>state.resumes.current)
     return(
         <div className="profile__icon">
             <Typography onClick={()=>{setOpen(true)}} variant="h4" className="profile__icon--name">
-                {user.name}
+                {user.name} {user.surname}
             </Typography>
             <Avatar className="profile__icon--avatar" onClick={()=>{setOpen(true)}} alt="User" src=""/>
             <Drawer
@@ -17,7 +17,7 @@ export default function ProfileIcon(){
             open={isOpen}
             onClose={()=>setOpen(false)}>
                 <Box className="profile__menu">
-                        <h1 className="profile__menu--name">{user.name}</h1>
+                        <h1 className="profile__menu--name">{user.name} {user.surname}</h1>
                         <Link to={`/projects/${user.name}`}>
                             <div className="profile__menu--item">
                                     <span>Мої проекти</span>    
